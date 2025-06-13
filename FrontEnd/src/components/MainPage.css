@@ -1,6 +1,4 @@
 
-/* style.module.css */
-/* Light Theme (default) */
 :root {
   --bg: #fff8f0;
   --bg-alt: #fff3e0;
@@ -78,7 +76,7 @@ button {
 button:hover {
   background-color: var(--primary-dark);
 }
-.homeButton {
+.home-Button {
   position: fixed;
   bottom: 20px;
   right: 20px;
