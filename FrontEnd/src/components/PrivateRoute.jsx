@@ -17,7 +17,7 @@ const PrivateRoute = ({ children }) => {
     <div style={{ padding: '2rem', textAlign: 'center' }}>
       <h2>You must be logged in to access this page.</h2>
       <p>
-        Please <Link to="/login">log in</Link> or <Link to="/register">register</Link> to continue.
+        Please <Link to="/Auth">log in</Link> or <Link to="/Auth">register</Link> to continue.
       </p>
     </div>
   );

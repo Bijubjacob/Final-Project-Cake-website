@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js'; // For Stripe 
 import { Elements } from '@stripe/react-stripe-js'; // For Stripe 
-import CheckoutForm from './CheckoutForm'; // For Stripe 
+import CheckoutForm from './CheckoutForm';
 
 
 const stripeLoad = loadStripe('your-publishable-key-here'); // use real key
