@@ -35,7 +35,7 @@ function ImageTransitions() {
                 />
 
 
-            <style jsx>{`
+            <style>{`
                 .image-transition {
                     position: relative;
                     width: 100%;

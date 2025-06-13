@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-//import { loadStripe } from '@stripe/stripe-js'; // For Stripe 
-//import { Elements } from '@stripe/react-stripe-js'; // For Stripe 
-//import CheckoutForm from './CheckoutForm'; // For Stripe 
-//const stripeLoad = loadStripe('mockKey')
+import { loadStripe } from '@stripe/stripe-js'; // For Stripe 
+import { Elements } from '@stripe/react-stripe-js'; // For Stripe 
+import CheckoutForm from './CheckoutForm'; // For Stripe 
+
+
+const stripeLoad = loadStripe('your-publishable-key-here'); // use real key
 
 
 function PaymentPage() {
 	const navigate = useNavigate(); {/* For the confirmation page once user submits payment*/}
+	const orderDetails = { name: 'Cake order example' };
+	const totalAmount = 3500; // for example $35.00 in cents
 
 	return (
 		<>
@@ -20,15 +24,15 @@ function PaymentPage() {
 		<main>
     			<section id="orderSummary">
         			<h2>Order Summary</h2>
-        			<p id="priceSummary">Total: $0.00</p>
+        			<p id="priceSummary">Total: ${(totalAmount / 100).toFixed(2)}</p>
    			</section>
 
     			<section id="paymentMethod">
         			<h2>Enter your payment information below.</h2>
         			<Elements stripe={stripeLoad}> {/* Specific code for Stripe to work. */}
-        				<CheckoutForm /> {/* Stripe user payment information. */}
-				</Elements>
-				</section>
+					<CheckoutForm amount={totalAmount} orderDetails={orderDetails} />
+          		</Elements>
+        	</section>
     
 
     			<section id="deliveryInformation">

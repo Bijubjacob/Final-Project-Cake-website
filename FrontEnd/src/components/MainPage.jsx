@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ImageTransitions from './ImageTransitions';
+import style from './style.module.css'; // Assuming you have a CSS module for styling
 
 function MainPage() {
 
@@ -8,20 +9,15 @@ function MainPage() {
 
 	return (
 		<>
-			<header>
-    <h1>Piece of Cake Bakery</h1>
-    <nav>
+    <main>
+    	<article>
+		<nav>
         <ul>
             <li><a href="#about">About Us</a></li>
             <li><a href="#examples">Example Designs</a></li>
             <li><a href="#order">Order Your Own Custom Cake</a></li>
         </ul>
-    </nav>
-    </header>
-
-    <main>
-    	<article>
-        	<h2>Welcome to Piece of Cake Bakery!</h2>
+    	</nav>
 
         	<section id="about">
             		<h3>About Us</h3>
