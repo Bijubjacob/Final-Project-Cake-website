@@ -9,7 +9,7 @@ import AuthPage from './components/AuthPage';
 import PrivateRoute from './components/PrivateRoute';
 import Header from './components/Header';
 import CartPage from './components/CartPage';
-import CheckoutForm from './components/CheckoutForm'; // This should be the checkout page
+import CheckoutFormWrapper from `./components/CheckoutForm`;
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         
         <Route path="/paymentPage" element={ <PrivateRoute><PaymentPage /></PrivateRoute>}/>
         <Route path="/customPage" element={ <PrivateRoute><CustomPage /></PrivateRoute>}/>
-        <Route path="/checkoutForm" element={ <PrivateRoute><CheckoutForm /></PrivateRoute> }/>
+        <Route path="/checkoutForm" element={ <PrivateRoute><CheckoutFormWrapper /></PrivateRoute> }/>
 
         {/* 404 fallback */}
         <Route path="*" element={<h1>Page Not Found</h1>} />

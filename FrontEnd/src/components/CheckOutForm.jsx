@@ -67,4 +67,4 @@ const CheckoutFormWrapper = ({ amount, orderDetails }) => (
   </Elements>
 );
 
-export default CheckoutForm;
+export default CheckoutFormWrapper;
