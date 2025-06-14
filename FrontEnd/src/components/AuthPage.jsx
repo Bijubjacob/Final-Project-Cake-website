@@ -34,14 +34,14 @@ const AuthPage = () => {
           return setError('Passwords do not match');
         }
 
-        const res = await axios.post('http://localhost:3000/api/auth/register', {
+        const res = await axios.post('https://final-project-cake-website.onrender.com/api/auth/register', {
           name: formData.name,
           email: formData.email,
           password: formData.password,
         });
         login(res.data.user);
       } else {
-        const res = await axios.post('http://localhost:3000/api/auth/login', {
+        const res = await axios.post('https://final-project-cake-website.onrender.com/api/auth/login', {
           email: formData.email,
           password: formData.password,
         });

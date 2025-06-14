@@ -16,7 +16,7 @@ const CheckoutForm = ({ amount, orderDetails }) => {
     setProcessing(true);
 
     try {
-      const { data } = await axios.post('http://localhost:3000/api/stripe/create-payment-intent', { amount });
+      const { data } = await axios.post('https://final-project-cake-website.onrender.com/api/stripe/create-payment-intent', { amount });
       const result = await stripe.confirmCardPayment(data.clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
@@ -33,7 +33,7 @@ const CheckoutForm = ({ amount, orderDetails }) => {
           total: amount,
           deliveryDate: orderDetails?.deliveryDate || null,
         }));
-        await axios.post('http://localhost:3000/api/orders', {
+        await axios.post('https://final-project-cake-website.onrender.com/api/orders', {
           ...orderDetails,
           paymentIntentId: result.paymentIntent.id,
         });
