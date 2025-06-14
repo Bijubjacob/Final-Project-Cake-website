@@ -18,10 +18,9 @@ const app = express();
 connectDB();
 
 const allowedOrigins = [
-  'http://localhost:5173', // Vite default
-  'https://your-frontend-domain.com'
+  'http://localhost:5173', // Local dev
+  'https://final-project-cake-website.vercel.app', // ✅ your live Vercel frontend
 ];
-
 
 app.use(cors({
   origin: (origin, callback) => {
