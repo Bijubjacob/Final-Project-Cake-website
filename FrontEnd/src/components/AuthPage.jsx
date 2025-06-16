@@ -124,4 +124,8 @@ const AuthPage = () => {
   );
 };
 
+<footer>
+  <p>&copy; 2025 Piece of Cake Bakery. All rights reserved.</p>
+</footer>
+
 export default AuthPage;
