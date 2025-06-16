@@ -65,6 +65,11 @@ const CheckoutFormWrapper = ({ amount, orderDetails }) => (
   <Elements stripe={stripePromise}>
     <CheckoutForm amount={amount} orderDetails={orderDetails} />
   </Elements>
+  <footer>
+  <p>&copy; 2025 Piece of Cake Bakery. All rights reserved.</p>
+</footer>
 );
+
+
 
 export default CheckoutFormWrapper;
