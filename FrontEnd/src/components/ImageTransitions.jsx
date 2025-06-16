@@ -16,7 +16,7 @@ function ImageTransitions() {
             setCurrentImageIndex(prevIndex => (prevIndex + 1) % images.length);
         }, 3000); // Change image every 3 seconds
 
-        return () => clearInterval(interval); // Cleanup on unmount
+        return () => clearInterval(interval);
     }
     , []);
 
@@ -28,7 +28,7 @@ function ImageTransitions() {
                 style={{
                 width: '400px',
                 height: '300px',
-                objectFit: 'cover', // or 'contain'
+                objectFit: 'cover',
                 borderRadius: '8px'
                 }}
                 className="transition-image"
