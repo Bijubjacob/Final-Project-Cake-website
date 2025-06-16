@@ -31,3 +31,14 @@
 .navLinks button:hover {
   color: #d2691e;
 }
+
+.logo {
+  display: flex;
+  gap: 1rem;
+}
+
+.logo img {
+  width: 40px;
+  height: auto;
+}
+  
