@@ -14,7 +14,11 @@ const Header = () => {
 
   return (
 <nav className={styles.navbar}>
-  <h1 className={styles.navTitle}>Welcome to Piece of Cake Bakery!</h1>
+  <div className={styles.logo}>
+    <img src="/assets/pieceofcakelogo.jpg" alt="Piece of Cake Bakery Logo"
+    <h1 className={styles.navTitle}>Welcome to Piece of Cake Bakery!</h1>
+  </div>
+  
   <div className={styles.navLinks}>
         <Link to="/">Home</Link>
         {user ? (
