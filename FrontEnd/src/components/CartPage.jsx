@@ -29,11 +29,10 @@ const CartPage = () => {
         </>
       )}
     </div>
+    <footer>
+      <p>&copy; 2025 Piece of Cake Bakery. All rights reserved.</p>
+    </footer>
   );
 };
-
-<footer>
-        		<p>&copy; 2025 Piece of Cake Bakery. All rights reserved.</p>
-</footer>
 
 export default CartPage;
