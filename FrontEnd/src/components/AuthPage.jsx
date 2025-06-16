@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
-import styles from './AuthPage.module.css'; // Assuming you have a CSS module for styling
+import styles from './AuthPage.module.css';
 
 const AuthPage = () => {
   const navigate = useNavigate();
