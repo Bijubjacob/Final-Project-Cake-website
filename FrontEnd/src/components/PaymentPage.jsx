@@ -5,7 +5,7 @@ import { Elements } from '@stripe/react-stripe-js'; // For Stripe
 import CheckoutForm from './CheckoutForm';
 
 
-const stripeLoad = loadStripe('your-publishable-key-here'); // use real key
+const stripeLoad = loadStripe('pk_test_51RalP5QtsBZ6lZQ9s6IEpqrK6VmJncnIiAVgrMzQVTHPIjIvR8Lnld9ZjPmIim6iY77Phunlq21hprod3VBAzgUa00smmf1Bis'); // test key
 
 
 function PaymentPage() {
