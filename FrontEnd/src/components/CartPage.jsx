@@ -2,7 +2,7 @@
 import React from 'react';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
-import style from "./CartPage.module.css"; // Assuming you have a CSS module for styling
+import style from "./CartPage.module.css";
 
 const CartPage = () => {
   const { cart, removeFromCart, clearCart } = useCart();
