@@ -56,6 +56,7 @@ const AuthPage = () => {
   };
 
   return (
+    <div>
     <div className={styles.authContainer}>
       <h2>{isRegistering ? 'Register' : 'Login'}</h2>
       <form onSubmit={onSubmit}>
@@ -124,6 +125,7 @@ const AuthPage = () => {
     <footer>
       <p>&copy; 2025 Piece of Cake Bakery. All rights reserved.</p>
     </footer>
+    </div>
   );
 };
 
