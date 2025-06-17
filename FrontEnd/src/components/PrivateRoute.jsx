@@ -11,11 +11,9 @@ const PrivateRoute = ({ children }) => {
   if (isAuthenticated()) {
     return children;
   }
-
-  // Instead of redirecting immediately, show a helpful message
   return (
     <div style={{ padding: '2rem', textAlign: 'center' }}>
-      <h2>You must be logged in to access this page.</h2>
+      <h2>You must log in first to place an order.</h2>
       <p>
         Please <Link to="/Auth">log in</Link> or <Link to="/Auth">register</Link> to continue.
       </p>
