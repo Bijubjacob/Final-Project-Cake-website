@@ -1,4 +1,3 @@
-// src/components/CartPage.js
 import React from 'react';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
@@ -11,8 +10,8 @@ const CartPage = () => {
     <div>
       <h2>Your Cart</h2>
       {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
+        <p>Your cart is empty.</p>): 
+        (
         <>
           <ul>
             {cart.map((item) => (
@@ -28,10 +27,10 @@ const CartPage = () => {
           </Link>
         </>
       )}
-    </div>
     <footer>
       <p>&copy; 2025 Piece of Cake Bakery. All rights reserved.</p>
     </footer>
+    </div>
   );
 };
 
