@@ -4,7 +4,7 @@ import { useStripe, useElements, CardElement, Elements } from '@stripe/react-str
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const CheckoutForm = ({ amount, orderDetails }) => {
+const CheckoutForm = ({ amount, orderDetails, deliveryDate, paymentSuccess }) => {
   const stripe = useStripe();
   const elements = useElements();
   const navigate = useNavigate();
@@ -28,7 +28,6 @@ const CheckoutForm = ({ amount, orderDetails }) => {
         alert(result.error.message);
         setProcessing(false);
       } else if (result.paymentIntent.status === 'succeeded') {
-          // Save order summary (customize as needed)
         localStorage.setItem('latestOrder', JSON.stringify({
           total: amount,
           deliveryDate: orderDetails?.deliveryDate || null,
