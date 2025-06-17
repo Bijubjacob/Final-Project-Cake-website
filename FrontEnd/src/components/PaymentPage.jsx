@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loadStripe } from '@stripe/stripe-js'; // For Stripe 
-import { Elements } from '@stripe/react-stripe-js'; // For Stripe 
+import { loadStripe } from '@stripe/stripe-js'; // For Stripe to work
+import { Elements } from '@stripe/react-stripe-js'; // For Stripe to work
 import CheckoutForm from './CheckoutForm';
 
 
-const stripeLoad = loadStripe('pk_test_51RalP5QtsBZ6lZQ9s6IEpqrK6VmJncnIiAVgrMzQVTHPIjIvR8Lnld9ZjPmIim6iY77Phunlq21hprod3VBAzgUa00smmf1Bis'); // test key
+const stripeLoad = loadStripe('pk_test_51RalP5QtsBZ6lZQ9s6IEpqrK6VmJncnIiAVgrMzQVTHPIjIvR8Lnld9ZjPmIim6iY77Phunlq21hprod3VBAzgUa00smmf1Bis'); // This is a test key. Will not process payments, only simualte it.
 
 
 function PaymentPage() {
-	const navigate = useNavigate(); {/* For the confirmation page once user submits payment*/}
-	const orderDetails = { name: 'Cake order example' };
-	const totalAmount = 3500; // for example $35.00 in cents
+	const navigate = useNavigate(); // For the confirmation page once user submits payment
+	const orderDetails = { name: 'Cake order details' };
+	const totalAmount = 3500; // The price will display as $0.00. Will cut off past 2 decimal points. 
 
 	return (
 		<>
@@ -29,7 +29,7 @@ function PaymentPage() {
 
     			<section id="paymentMethod">
         			<h2>Enter your payment information below.</h2>
-        			<Elements stripe={stripeLoad}> {/* Specific code for Stripe to work. */}
+        			<Elements stripe={stripeLoad}> // Specific code for Stripe to work.
 					<CheckoutForm amount={totalAmount} orderDetails={orderDetails} />
           		</Elements>
         	</section>
