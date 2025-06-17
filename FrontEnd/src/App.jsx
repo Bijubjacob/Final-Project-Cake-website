@@ -8,13 +8,12 @@ import PaymentPage from './components/PaymentPage';
 import AuthPage from './components/AuthPage';
 import PrivateRoute from './components/PrivateRoute';
 import Header from './components/Header';
-import CartPage from './components/CartPage';
 import CheckoutFormWrapper from `./components/CheckoutForm`;
 
 function App() {
   return (
     <>
-      <Header /> {/* Displayed on all pages */}
+      <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/confirmation" element={<ConfirmationPage />} />
@@ -23,13 +22,13 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         
 
-        {/* Private routes */}
+     
         
         <Route path="/paymentPage" element={ <PrivateRoute><PaymentPage /></PrivateRoute>}/>
         <Route path="/customPage" element={ <PrivateRoute><CustomPage /></PrivateRoute>}/>
         <Route path="/checkoutForm" element={ <PrivateRoute><CheckoutFormWrapper /></PrivateRoute> }/>
 
-        {/* 404 fallback */}
+        
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </>
