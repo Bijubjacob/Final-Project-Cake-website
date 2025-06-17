@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { loadStripe } from '@stripe/stripe-js';
 import { useStripe, useElements, CardElement, Elements } from '@stripe/react-stripe-js';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -51,23 +52,23 @@ const CheckoutForm = ({ amount, orderDetails }) => {
     <form onSubmit={handleSubmit}>
       <CardElement />
       <button type="submit" disabled={!stripe || processing}>
-        {processing ? 'Processing...' : 'Pay Now'}
+        {processing ? 'Processing Payment' : 'Pay Now'}
       </button>
     </form>
   );
 };
 
-// Wrapper component to provide stripe object via Elements
-import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe('your-publishable-key-here');
 
 const CheckoutFormWrapper = ({ amount, orderDetails }) => (
+  <>
   <Elements stripe={stripePromise}>
     <CheckoutForm amount={amount} orderDetails={orderDetails} />
   </Elements>
   <footer>
-  <p>&copy; 2025 Piece of Cake Bakery. All rights reserved.</p>
-</footer>
+    <p>&copy; 2025 Piece of Cake Bakery. All rights reserved.</p>
+  </footer>
+</>
 );
 
 
