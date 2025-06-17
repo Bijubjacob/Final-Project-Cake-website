@@ -30,7 +30,6 @@ const CheckoutForm = ({ amount, orderDetails }) => {
       } else if (result.paymentIntent.status === 'succeeded') {
           // Save order summary (customize as needed)
         localStorage.setItem('latestOrder', JSON.stringify({
-          cakeType: orderDetails?.cakeType || 'Custom Cake',
           total: amount,
           deliveryDate: orderDetails?.deliveryDate || null,
         }));
