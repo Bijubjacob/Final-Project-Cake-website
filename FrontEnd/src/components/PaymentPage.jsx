@@ -13,7 +13,9 @@ function PaymentPage() {
 	const navigate = useNavigate(); // For the confirmation page once user submits payment
 	const location = useLocation(); // Needed to gather order data from the custom page
 	const {totalAmount = 0, orderDetails = {} } = location.state || {}; // The price will display as $0.00. Will cut off past 2 decimal points. 
-
+	const [deliveryDate, setDeliveryDate] = useState('');
+	const payment = () => {navigate('/ConfirmationPage');};
+	
 	return (
 		<>
 
@@ -44,7 +46,7 @@ function PaymentPage() {
     			<section id="paymentMethod">
         			<h2>Enter your payment information below.</h2>
         			<Elements stripe={stripeLoad}>
-					<CheckoutForm amount={totalAmount} orderDetails={orderDetails} />
+					<CheckoutForm amount={totalAmount} orderDetails={orderDetails} deliveryDate={deliveryDate} paymentSuccess={payment} />
           		</Elements>
         	</section>
     
@@ -127,8 +129,10 @@ function PaymentPage() {
     			<section id="deliveryDate">
         			<h2>Enter the date and time you need your cake</h2>
         			<label htmlFor="dateInput">Select delivery date and time.</label>
-        			<input type="datetime-local" id="dateInput" name="deliveryDate" />
+        			<input type="datetime-local" id="dateInput" name="deliveryDate" value={deliveryDate} onChange={(e) => setDeliveryDate(e.target.value)} />
     			</section>
+
+			
 
     			<section id="goBack">
         			<h2>Need to make some changes?</h2>
