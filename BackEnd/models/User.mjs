@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/\S+@\S+\.\S+/, 'Please enter a valid email address'], // Email validation regex
+    match: [/\S+@\S+\.\S+/, 'Please enter a valid email address'],
   },
   password: {
     type: String,
@@ -17,8 +17,8 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['user', 'admin'], // Can be 'user' or 'admin'
-    default: 'user',         // Default to regular user
+    enum: ['user', 'admin'],
+    default: 'user',         
   },
   isVerified: {
     type: Boolean,
