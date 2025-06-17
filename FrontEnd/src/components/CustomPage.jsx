@@ -420,7 +420,12 @@ function CustomPage() {
             alert("Please select an option in each field to continue!");
             return; 
           }
-            navigate("/PaymentPage");
+            navigate("/PaymentPage", {
+              state: {totalPrice: parseFloat(calculatePrice()) * 100,
+                orderDetails: {shape, size, layer, flavor, frostingColor1, frostingColor2, frostingColor3, userFrostingDesign, cakeText, cakeDecor, userImage}
+              
+              }
+            });
           }}>
             Continue to Payment Method
           </button>
