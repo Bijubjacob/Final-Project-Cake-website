@@ -51,7 +51,7 @@ const AuthPage = () => {
       alert(`${isRegistering ? 'Registration' : 'Login'} successful`);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.errors?.[0]?.msg || 'Authentication failed');
+      setError(err.response?.data?.errors?.[0]?.msg || 'Registration has failed');
     }
   };
 
