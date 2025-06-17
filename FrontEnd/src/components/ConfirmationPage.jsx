@@ -24,7 +24,6 @@ function ConfirmationPage() {
         {order ? (
           <section>
             <h2>Order Summary</h2>
-            <p><strong>Cake Type:</strong> {order.cakeType}</p>
             <p><strong>Total Paid:</strong> ${(order.total / 100).toFixed(2)}</p>
             {order.deliveryDate && (
               <p><strong>Delivery Date:</strong> {new Date(order.deliveryDate).toLocaleString()}</p>
