@@ -9,7 +9,7 @@ const Header = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/'); // Redirect to home page after logout
+    navigate('/');
   };
 
   return (
@@ -24,7 +24,6 @@ const Header = () => {
         {user ? (
           <>
             <Link to="/customPage">Order Cake</Link>
-            <Link to="/cart">Cart</Link>
             <Link to="/paymentPage">Payment</Link>
             <button onClick={handleLogout}>Logout</button>
           </>
