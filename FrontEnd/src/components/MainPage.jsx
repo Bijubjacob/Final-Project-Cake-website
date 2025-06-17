@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ImageTransitions from './ImageTransitions';
-import './MainPage.css'; // Assuming you have a CSS file for styling
+import './MainPage.css';
 
 
 
