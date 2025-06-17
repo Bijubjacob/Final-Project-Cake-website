@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js'; // For Stripe to work
 import { Elements } from '@stripe/react-stripe-js'; // For Stripe to work
 import CheckoutForm from './CheckoutForm';
@@ -10,8 +11,8 @@ const stripeLoad = loadStripe('pk_test_51RalP5QtsBZ6lZQ9s6IEpqrK6VmJncnIiAVgrMzQ
 
 function PaymentPage() {
 	const navigate = useNavigate(); // For the confirmation page once user submits payment
-	const orderDetails = { name: 'Cake order details' };
-	const totalAmount = 3500; // The price will display as $0.00. Will cut off past 2 decimal points. 
+	const location = useLocation(); // Needed to gather order data from the custom page
+	const {totalAmount = 0, orderDetails = {} } = location.state || {}; // The price will display as $0.00. Will cut off past 2 decimal points. 
 
 	return (
 		<>
@@ -25,11 +26,24 @@ function PaymentPage() {
     			<section id="orderSummary">
         			<h2>Order Summary</h2>
         			<p id="priceSummary">Total: ${(totalAmount / 100).toFixed(2)}</p>
+					<ul>
+						<li><strong>Shape:</strong> {orderDetails.shape}</li>
+						<li><strong>Size:</strong> {orderDetails.size}</li>
+						<li><strong>Layer:</strong> {orderDetails.layer}</li>
+						<li><strong>:Flavor</strong> {orderDetails.flavor}</li>
+						<li><strong>Primary Frosting Color:</strong> {orderDetails.frostingColor1}</li>
+						<li><strong>Secondary Frosting Color:</strong> {orderDetails.frostingColor2}</li>
+						<li><strong>Tertiary Frosting Color:</strong> {orderDetails.frostingColor3}</li>
+						<li><strong>Frosting Design:</strong> {orderDetails.userFrostingDesign}</li>
+						<li><strong>Cake Text:</strong> {orderDetails.cakeText}</li>
+						<li><strong>Cake Decor:</strong> {orderDetails.cakeDecor}</li>
+						<li><strong>Image:</strong> {orderDetails.userImage}</li>
+					</ul>
    			</section>
 
     			<section id="paymentMethod">
         			<h2>Enter your payment information below.</h2>
-        			<Elements stripe={stripeLoad}> // Specific code for Stripe to work.
+        			<Elements stripe={stripeLoad}>
 					<CheckoutForm amount={totalAmount} orderDetails={orderDetails} />
           		</Elements>
         	</section>
