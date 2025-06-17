@@ -19,16 +19,9 @@ function App() {
         <Route path="/confirmation" element={<ConfirmationPage />} />
         <Route path="/images" element={<ImageTransitions />} />
         <Route path="/Auth" element={<AuthPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        
-
-     
-        
         <Route path="/paymentPage" element={ <PrivateRoute><PaymentPage /></PrivateRoute>}/>
         <Route path="/customPage" element={ <PrivateRoute><CustomPage /></PrivateRoute>}/>
         <Route path="/checkoutForm" element={ <PrivateRoute><CheckoutFormWrapper /></PrivateRoute> }/>
-
-        
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </>
