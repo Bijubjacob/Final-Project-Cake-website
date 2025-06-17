@@ -9,7 +9,7 @@ function ConfirmationPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate('/');
-    }, 10000); // Redirect after 10 seconds
+    }, 10000); // Will redirect out of this page after 10 seconds of waiting.
     return () => clearTimeout(timer);
   }, [navigate]);
 
@@ -30,14 +30,12 @@ function ConfirmationPage() {
               <p><strong>Delivery Date:</strong> {new Date(order.deliveryDate).toLocaleString()}</p>
             )}
           </section>
-        ) : (
-          <p>We couldn't load your order details. But it's confirmed!</p>
-        )}
-
+        )}; 
+        
         <section>
           <h2>Return to the Homepage</h2>
           <button onClick={() => navigate('/')}>Return to Homepage</button>
-          <p>You’ll be redirected automatically in a few seconds.</p>
+          <p>You’ll be redirected to the homepage.</p>
         </section>
       </main>
 
