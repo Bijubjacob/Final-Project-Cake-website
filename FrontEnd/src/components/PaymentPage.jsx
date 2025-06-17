@@ -132,6 +132,3 @@ function PaymentPage() {
 }
 
 export default PaymentPage;
-    
-
-{/* Code by Daniel Rusev */}
