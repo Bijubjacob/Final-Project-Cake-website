@@ -7,9 +7,9 @@ const router = express.Router();
 
 router.post(
   [
-    check('name', 'Name is required').not().isEmpty(),
-    check('email', 'Please include a valid email').isEmail(),
-    check('password', 'Password must be 6+ chars').isLength({ min: 6 }),
+    check('name', 'Name is required.').not().isEmpty(),
+    check('email', 'Please include a valid email.').isEmail(),
+    check('password', 'Password must be 6 or more characters in length.').isLength({ min: 6 }),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -19,7 +19,7 @@ router.post(
 
     try {
       let user = await User.findOne({ email });
-      if (user) return res.status(400).json({ errors: [{ msg: 'User Already Exists' }] });
+      if (user) return res.status(400).json({ errors: [{ msg: 'This account already exists' }] });
 
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
@@ -37,17 +37,16 @@ router.post(
       res.status(201).json({ msg: 'User registered successfully' });
     } catch (err) {
       console.error(err);
-      res.status(500).json({ errors: [{ msg: 'Server Error' }] });
+      res.status(500).json({ errors: [{ msg: 'Server error' }] });
     }
   }
 );
 
-// Login route
 router.post(
   '/login',
   [
     check('email', 'Please include a valid email').isEmail(),
-    check('password', 'Password required').exists(),
+    check('password', 'Password is required').exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -57,10 +56,10 @@ router.post(
 
     try {
       const user = await User.findOne({ email });
-      if (!user) return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
+      if (!user) return res.status(400).json({ errors: [{ msg: 'Your credentials are invalid' }] });
 
       const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
+      if (!isMatch) return res.status(400).json({ errors: [{ msg: 'Your credentials are invalid' }] });
 
       res.json({
         msg: 'Login successful',
@@ -73,7 +72,7 @@ router.post(
       });
     } catch (err) {
       console.error(err);
-      res.status(500).json({ errors: [{ msg: 'Server Error' }] });
+      res.status(500).json({ errors: [{ msg: 'Server error' }] });
     }
   }
 );
