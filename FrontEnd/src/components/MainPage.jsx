@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import ImageTransitions from './ImageTransitions';
 import './MainPage.css';
 
-
-
 function MainPage() {
 
 	const navigate = useNavigate();
@@ -31,23 +29,15 @@ function MainPage() {
         	<section id="examples">
             		<h4>Example Cakes</h4>
             		<div className="example-cakes">
-                		<ImageTransitions />
-            		</div>
-
-                {/* A JavaScript will be used to rotate each image below */}
-                {/* "chocolatecake.jpg" alt="Chocolate cake example">
-                "vanillacake.jpg" alt="Vanilla cake example">
-                "redvelvetcake.jpg" alt="Red Velvet cake example">
-                "birthdaycake.jpg" alt="Birthday cake example">
-                "graduationcake.jpg" alt="Graduation cake example"> */}
-            
+                		<ImageTransitions/>
+            		</div>            
         	</section>
 
         	<section id="order">
             		<h5>Design Your Own Cake</h5>
             		<div className="buttons">
                 		<button onClick={() => navigate('/CustomPage')}>
-					Order Now
+					Order Your Own Personalized Cake 
 				</button>
             		</div>
        		</section>
@@ -59,7 +49,6 @@ function MainPage() {
         <footer>
             <p>&copy; 2025 Piece of Cake Bakery. All rights reserved.</p>
         </footer>
-
        </>
      );
 }
