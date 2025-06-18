@@ -1,9 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
-
 export const AuthContext = createContext();
-
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+export const AuthProvider = ({ children }) => {const [user, setUser] = useState(null);
 
   useEffect(() => {
     try {
@@ -11,20 +8,17 @@ export const AuthProvider = ({ children }) => {
       if (savedUser && savedUser !== 'undefined') {
         setUser(JSON.parse(savedUser));
       } else {
-        localStorage.removeItem('user'); // Clean up bad values
+        localStorage.removeItem('user');
       }
     } catch (error) {
-      console.error('Error parsing user from localStorage:', error);
+      console.error('Error:', error);
       localStorage.removeItem('user');
-    }
-  }, []);
+    }}, []);
   
-
   const login = (userData) => {
     localStorage.setItem('user', JSON.stringify(userData));
     setUser(userData);
   };
-
   const logout = () => {
     localStorage.removeItem('user');
     setUser(null);
