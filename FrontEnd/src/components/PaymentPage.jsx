@@ -5,16 +5,40 @@ import { loadStripe } from '@stripe/stripe-js'; // For Stripe to work
 import { Elements } from '@stripe/react-stripe-js'; // For Stripe to work
 import CheckoutForm from './CheckoutForm';
 
-
 const stripeLoad = loadStripe('pk_test_51RalP5QtsBZ6lZQ9s6IEpqrK6VmJncnIiAVgrMzQVTHPIjIvR8Lnld9ZjPmIim6iY77Phunlq21hprod3VBAzgUa00smmf1Bis'); // This is a test key. Will not process payments, only simualte it.
-
 
 function PaymentPage() {
 	const navigate = useNavigate(); // For the confirmation page once user submits payment
 	const location = useLocation(); // Needed to gather order data from the custom page
-	const {totalAmount = 0, orderDetails = {} } = location.state || {}; // The price will display as $0.00. Will cut off past 2 decimal points. 
+	const {totalPrice = 0, orderDetails = {} } = location.state || {}; // The price will display as $0.00. Will cut off past 2 decimal points. 
 	const [deliveryDate, setDeliveryDate] = useState('');
 	const payment = () => {navigate('/ConfirmationPage');};
+	const summaryLabels = {
+		rectangle: "Rectangle",
+		circle: "Circle",
+		star: "Star",
+		singleSheet: "Single Sheet",
+		doubleSheet: "Double Sheet",
+		tripleSheet: "Triple Sheet",
+		chocolate: "Chocolate",
+		vanilla: "Vanilla",
+		"red velvet": "Red Velvet",
+		lemon: "Lemon",
+		carrot: "Carrot",
+		red: "Red",
+        blue: "Blue",
+        "light blue": "Light Blue",
+        orange: "Orange",
+        green: "Green",
+        yellow: "Yellow",
+        gold: "Gold",
+        purple: "Purple",
+        pink: "Pink",
+        white: "White",
+        brown: "Brown",
+        black: "Black",
+        none: "No Frosting",
+	};
 	
 	return (
 		<>
@@ -27,29 +51,20 @@ function PaymentPage() {
 		<main>
     			<section id="orderSummary">
         			<h2>Order Summary</h2>
-        			<p id="priceSummary">Total: ${(totalAmount / 100).toFixed(2)}</p>
+        			<p id="priceSummary">Total: ${(totalPrice / 100).toFixed(2)}</p>
 					<ul>
-						<li><strong>Shape:</strong> {orderDetails.shape}</li>
+						<li><strong>Shape:</strong> {summaryLabels[orderDetails.shape]}</li>
 						<li><strong>Size:</strong> {orderDetails.size}</li>
-						<li><strong>Layer:</strong> {orderDetails.layer}</li>
-						<li><strong>:Flavor</strong> {orderDetails.flavor}</li>
-						<li><strong>Primary Frosting Color:</strong> {orderDetails.frostingColor1}</li>
-						<li><strong>Secondary Frosting Color:</strong> {orderDetails.frostingColor2}</li>
-						<li><strong>Tertiary Frosting Color:</strong> {orderDetails.frostingColor3}</li>
+						<li><strong>Layer:</strong> {summaryLabels[orderDetails.layer]}</li>
+						<li><strong>Flavor</strong> {summaryLabels[orderDetails.flavor]}</li>
+						<li><strong>Primary Frosting Color:</strong> {summaryLabels[orderDetails.frostingColor1]}</li>
+						<li><strong>Secondary Frosting Color:</strong> {summaryLabels[orderDetails.frostingColor2]}</li>
+						<li><strong>Tertiary Frosting Color:</strong> {summaryLabels[orderDetails.frostingColor3]}</li>
 						<li><strong>Frosting Design:</strong> {orderDetails.userFrostingDesign}</li>
 						<li><strong>Cake Text:</strong> {orderDetails.cakeText}</li>
 						<li><strong>Cake Decor:</strong> {orderDetails.cakeDecor}</li>
-						<li><strong>Image:</strong> {orderDetails.userImage}</li>
 					</ul>
    			</section>
-
-    			<section id="paymentMethod">
-        			<h2>Enter your payment information below.</h2>
-        			<Elements stripe={stripeLoad}>
-					<CheckoutForm amount={totalAmount} orderDetails={orderDetails} deliveryDate={deliveryDate} paymentSuccess={payment} />
-          		</Elements>
-        	</section>
-    
 
     			<section id="deliveryInformation">
         			<h2>Enter your delivery address below.</h2>
@@ -60,7 +75,7 @@ function PaymentPage() {
         
         			<p>
         				<label htmlFor="state">State</label>
-                                        <select id="state" name="state">
+                                <select id="state" name="state">
             					<option value="Alabama">AL</option>
             					<option value="Alaska">AK</option>
             					<option value="Arizona">AZ</option>
@@ -85,7 +100,7 @@ function PaymentPage() {
             					<option value="Michigan">MI</option>
             					<option value="Minnesota">MN</option>
             					<option value="Mississippi">MS</option>
-           	 				<option value="Missouri">MO</option>
+           	 				    <option value="Missouri">MO</option>
             					<option value="Montana">MT</option>
             					<option value="Nebraska">NE</option>
             					<option value="Nevada">NV</option>
@@ -116,12 +131,12 @@ function PaymentPage() {
         
         			<p>
         				<label htmlFor="city">City</label>
-        				<input type="text" id="city" name="city" placeholder="Enter your city" />
+        				<input type="text" id="city" name="city" placeholder="Enter your city"/>
 				</p>
 
         			<p>
         				<label htmlFor="zip">Zip Code</label>
-        				<input type="text" id="zip" name="zip" placeholder="Enter your zip code" />
+        				<input type="text" id="zip" name="zip" placeholder="Enter your zip code"/>
 				</p>
 
     			</section>
@@ -132,7 +147,13 @@ function PaymentPage() {
         			<input type="datetime-local" id="dateInput" name="deliveryDate" value={deliveryDate} onChange={(e) => setDeliveryDate(e.target.value)} />
     			</section>
 
-			
+				
+    			<section id="paymentMethod">
+        			<h2>Enter your payment information below.</h2>
+        			<Elements stripe={stripeLoad}>
+					<CheckoutForm amount={totalPrice} orderDetails={orderDetails} deliveryDate={deliveryDate} paymentSuccess={payment} />
+          		</Elements>
+        	</section>
 
     			<section id="goBack">
         			<h2>Need to make some changes?</h2>
