@@ -22,12 +22,10 @@ const UserSchema = new mongoose.Schema({
   },
   isVerified: {
     type: Boolean,
-    default: false, // Default value for unverified users
+    default: false, // This is a default value for unverified users
   },
 }, { timestamps: true });
 
-
-// Create the model based on the schema
 const User = mongoose.model('user', UserSchema, 'users');
 
 export default User;
