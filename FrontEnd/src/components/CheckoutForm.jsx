@@ -9,11 +9,10 @@ const CheckoutForm = ({ amount, orderDetails, deliveryDate, paymentSuccess }) =>
   const elements = useElements();
   const navigate = useNavigate();
   const [processing, setProcessing] = useState(false);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!stripe || !elements) return;
-
+    
     setProcessing(true);
 
     try {
@@ -57,18 +56,12 @@ const CheckoutForm = ({ amount, orderDetails, deliveryDate, paymentSuccess }) =>
 };
 
 const stripePromise = loadStripe('pk_test_51RalP5QtsBZ6lZQ9s6IEpqrK6VmJncnIiAVgrMzQVTHPIjIvR8Lnld9ZjPmIim6iY77Phunlq21hprod3VBAzgUa00smmf1Bis');
-
 const CheckoutFormWrapper = ({ amount, orderDetails, deliveryDate }) => (
   <>
   <Elements stripe={stripePromise}>
     <CheckoutForm amount={amount} orderDetails={orderDetails} deliveryDate={deliveryDate}/>
   </Elements>
-  <footer>
-    <p>&copy; 2025 Piece of Cake Bakery. All rights reserved.</p>
-  </footer>
 </>
 );
-
-
 
 export default CheckoutFormWrapper;
