@@ -1,15 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import './CustomPage.css';
 
 function CustomPage() {
   const navigate = useNavigate();
-
   const sizeOptions = {
     rectangle: ["6x8", "8x10", "10x12"],
     circle: ["6 inch", "8 inch", "10 inch"],
     star: ["Small", "Medium", "Large"],
   };
-
   const optionImages = {
     // Shape Images //
 
@@ -48,7 +47,6 @@ function CustomPage() {
     none: "/assets/nosign.png"
 
   };
-
   const prices = {
     shape: {
       rectangle: 15,
@@ -135,7 +133,6 @@ function CustomPage() {
       "": 0,
     },
   };
-
   const [shape, setShape] = React.useState("");
   const [size, setSize] = React.useState("");
   const [layer, setLayer] = React.useState("");
@@ -147,8 +144,6 @@ function CustomPage() {
   const [cakeText, setCakeText] = React.useState("");
   const [cakeDecor, setCakeDecor] = React.useState("");
   const [userImage, setUserImage] = React.useState(null);
-
-
   const calculatePrice = () => {
     let total = 0;
     if (shape) total += prices.shape[shape];
@@ -192,7 +187,7 @@ function CustomPage() {
           </select>
           {shape && (
             <div className="shapeImage">
-              <img src={optionImages[shape]} alt= "Selected Shape"/>
+              <img src={optionImages[shape]} alt= "Selected Shape" className="optionImage"/>
             </div>
           )}
         </section>
@@ -232,12 +227,13 @@ function CustomPage() {
             <option value="singleSheet">Single Sheet</option>
             <option value="doubleSheet">Double Sheet</option>
             <option value="tripleSheet">Triple Sheet</option>
-            {layer && (
+          </select>
+
+          {layer && (
             <div className="layerImage">
-              <img src={optionImages[layer]} alt= "Selected Layer"/>
+              <img src={optionImages[layer]} alt= "Selected Layer" className="optionImage"/>
             </div>
           )}
-          </select>
         </section>
 
         <section id="cakeFlavor">
@@ -256,12 +252,13 @@ function CustomPage() {
             <option value="red velvet">Red Velvet</option>
             <option value="lemon">Lemon</option>
             <option value="carrot">Carrot</option>
-            {flavor && (
+          </select>
+
+          {flavor && (
             <div className="flavorImage">
-              <img src={optionImages[flavor]} alt= "Selected Flavor"/>
+              <img src={optionImages[flavor]} alt= "Selected Flavor" className="optionImage"/>
             </div>
           )}
-          </select>
         </section>
 
         <section id="frostingColor1">
@@ -291,7 +288,7 @@ function CustomPage() {
           </select>
           { frostingColor1 && (
             <div className="color1Image">
-              <img src={optionImages[frostingColor1]} alt= "Selected Frosting Color"/>
+              <img src={optionImages[frostingColor1]} alt= "Selected Frosting Color" className="optionImage"/>
             </div>
           )}
         </section>
@@ -323,7 +320,7 @@ function CustomPage() {
           </select>
           { frostingColor2 && (
             <div className="color2Image">
-              <img src={optionImages[frostingColor2]} alt= "Selected Frosting Color"/>
+              <img src={optionImages[frostingColor2]} alt= "Selected Frosting Color" className="optionImage"/>
             </div>
           )}
         </section>
@@ -355,7 +352,7 @@ function CustomPage() {
           </select>
           { frostingColor3 && (
             <div className="color3Image">
-              <img src={optionImages[frostingColor3]} alt= "Selected Frosting Color"/>
+              <img src={optionImages[frostingColor3]} alt= "Selected Frosting Color" className="optionImage"/>
             </div>
           )}
         </section>
@@ -366,6 +363,7 @@ function CustomPage() {
             <textarea 
 		          id="userFrostingDesign" 
 		          name="userFrostingDesign" 
+              rows={5}
 		          className="textbox" 
 		          placeholder="E.g., I would like a Drop Flower design along the top edges with my primary frosting color. I would like a Open Star design along the bottom edges with my secondary color. I would like the frosting in between the cake layers to be the tertiary color." 
 		          required
@@ -378,7 +376,7 @@ function CustomPage() {
             <textarea 
 		        id="cakeText" 
 		        name="cakeText" 
-		        rows={5} 
+		        rows={2} 
 		        className="textbox" 
 		        placeholder="E.g., Put 'Happy Birthday Mom!' on the cake."
             onChange={(e) => setCakeText(e.target.value)}/>
@@ -390,7 +388,7 @@ function CustomPage() {
             <textarea 
 		        id="cakeDecor" 
 		        name="cakeDecor" 
-		        rows={5} 
+		        rows={2} 
 		        className="textbox" 
 		        placeholder="E.g., 'Put a decorative graduation hat on the top of the cake.'"
             onChange={(e) => setCakeDecor(e.target.value)}/>
@@ -398,7 +396,7 @@ function CustomPage() {
 
         <section id="userImage">
         <h2>Have a picture of a design you would like for us to implement onto your cake?</h2>
-        <label htmlFor="userImage">Upload a image here:</label>
+        <label htmlFor="userImage">Upload an image here:</label>
             	<input 
 			        type="file" 
 			        id="userImage" 
@@ -422,7 +420,7 @@ function CustomPage() {
           }
             navigate("/PaymentPage", {
               state: {totalPrice: parseFloat(calculatePrice()) * 100,
-                orderDetails: {shape, size, layer, flavor, frostingColor1, frostingColor2, frostingColor3, userFrostingDesign, cakeText, cakeDecor, userImage}
+                orderDetails: {shape, size, layer, flavor, frostingColor1, frostingColor2, frostingColor3, userFrostingDesign, cakeText, cakeDecor}
               
               }
             });
