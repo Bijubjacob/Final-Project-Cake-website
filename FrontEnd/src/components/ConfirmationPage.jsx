@@ -20,21 +20,11 @@ function ConfirmationPage() {
         <p>Your cake is being prepared. Thank you very much!</p>
       </header>
 
-      <main>
-        {order ? (
-          <section>
-            <h2>Order Summary</h2>
-            <p><strong>Total Paid:</strong> ${(order.total / 100).toFixed(2)}</p>
-            {order.deliveryDate && (
-              <p><strong>Delivery Date:</strong> {new Date(order.deliveryDate).toLocaleString()}</p>
-            )}
-          </section>
-        ) : null}
-        
+      <main>        
         <section>
           <h2>Return to the Homepage</h2>
           <button onClick={() => navigate('/')}>Return to Homepage</button>
-          <p>You’ll be redirected to the homepage.</p>
+          <p>You’ll be automatically redirected to the homepage soon.</p>
         </section>
       </main>
 
