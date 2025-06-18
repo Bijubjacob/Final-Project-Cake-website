@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 const images = [
-    { src: '/assets/birthdaycake.jpg', alt: 'Birthday cake example' },
-    { src: '/assets/vanilla cake.jpg', alt: 'Vanilla cake example' },
-    { src: '/assets/red velvet cake.jpg', alt: 'Red Velvet cake example' },
-    { src: '/assets/chocolate cake.jpg', alt: 'Chocalate cake example' },
-    { src: '/assets/graduationcake.jpg', alt: 'Graduation cake example' }
+    { src: '/assets/birthdaycake.jpg', alt: 'Birthday Cake Example' },
+    { src: '/assets/vanilla cake.jpg', alt: 'Vanilla Cake Example' },
+    { src: '/assets/red velvet cake.jpg', alt: 'Red Velvet Cake Example' },
+    { src: '/assets/chocolate cake.jpg', alt: 'Chocalate Cake Example' },
+    { src: '/assets/graduationcake.jpg', alt: 'Graduation Cake Example' }
   ];
 
 function ImageTransitions() {
@@ -13,12 +13,8 @@ function ImageTransitions() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImageIndex(prevIndex => (prevIndex + 1) % images.length);
-        }, 3000); // Change image every 3 seconds
-
-        return () => clearInterval(interval);
-    }
-    , []);
+            setCurrentImageIndex(prevIndex => (prevIndex + 1) % images.length);}, 3000); // This will transition each image every 3 seconds.
+        return () => clearInterval(interval);}, []);
 
     return (
         <div className="image-transition">
