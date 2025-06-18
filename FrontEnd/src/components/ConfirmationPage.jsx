@@ -29,7 +29,7 @@ function ConfirmationPage() {
               <p><strong>Delivery Date:</strong> {new Date(order.deliveryDate).toLocaleString()}</p>
             )}
           </section>
-        )}
+        ) : null}
         
         <section>
           <h2>Return to the Homepage</h2>
