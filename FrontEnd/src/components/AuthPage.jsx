@@ -116,7 +116,7 @@ const AuthPage = () => {
       </form>
 
       <p style={{ marginTop: '1rem' }}>
-        {isRegistering ? 'Already have an account?' : "Don't have an account?"}
+        {isRegistering ? "Already have an account?": null}
         <button type="button" onClick={toggleMode} style={{ marginLeft: '0.5rem' }}>
           {isRegistering ? 'Login' : 'Register'}
         </button>
