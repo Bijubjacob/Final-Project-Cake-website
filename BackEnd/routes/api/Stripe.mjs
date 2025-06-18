@@ -12,15 +12,14 @@ router.post('/create-payment-intent', async (req, res) => {
     const { amount } = req.body;
 
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount, // Amount will display in cents
+      amount: amount, // The amount will display in dollars and cents
       currency: 'usd',
     });
 
     res.send({ clientSecret: paymentIntent.client_secret });
   } catch (error) {
     console.error('Error with Stripe payment:', error);
-    res.status(500).json({ error: 'Payment has failed' });
+    res.status(500).json({ error: 'Your payment has failed' });
   }
 });
-
 export default router;
