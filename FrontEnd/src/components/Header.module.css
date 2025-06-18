@@ -6,10 +6,10 @@
 }
 
 .navTitle {
-  flex: 5;
   text-align: center;
   color: #ff7043;
-  margin-left: 8em;
+  margin-left: 0.5em;
+  font-size: large;
 }
 
 .navLinks {
@@ -21,10 +21,14 @@
 .navLinks button {
   text-decoration: none;
   color: #5a3e36;
+  font: inherit;
   font-weight: bold;
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
 }
 
 .navLinks a:hover,
@@ -34,11 +38,11 @@
 
 .logo {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
 .logo img {
-  width: 40px;
+  width: 60px;
   height: auto;
 }
-  
