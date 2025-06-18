@@ -4,7 +4,6 @@ import { Navigate, useLocation, Link } from 'react-router-dom';
 const isAuthenticated = () => {
   return !!localStorage.getItem('user');
 };
-
 const PrivateRoute = ({ children }) => {
   const location = useLocation();
 
