@@ -1,4 +1,3 @@
-// routes/api/ordersRoute.mjs
 import express from 'express';
 import Order from '../../models/Orders.mjs';
 
