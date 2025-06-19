@@ -1,4 +1,3 @@
-// routes/api/ordersRoute.mjs
 import express from 'express';
 import Order from '../../models/Orders.mjs';
 
@@ -21,7 +20,7 @@ router.post('/', async (req, res) => {
     await order.save();
     res.status(201).json({ msg: 'Order placed successfully', order });
   } catch (err) {
-    console.error('Order creation error:', err);
+    console.error('Error in placing order:', err);
     res.status(500).json({ errors: [{ msg: 'Server error' }] });
   }
 });

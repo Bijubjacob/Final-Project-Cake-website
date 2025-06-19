@@ -1,0 +1,61 @@
+Resources and examples for the BackEnd to help us:
+
+========================
+📌 General Roadmaps
+========================
+- Dave Gray's Web Dev Roadmap (Free PDF): https://bit.ly/DaveGrayWebDevRoadmap
+- The Odin Project (Full-Stack JS Path): https://www.theodinproject.com/paths/full-stack-javascript
+- freeCodeCamp Back End Development and APIs: https://www.freecodecamp.org/learn/back-end-development-and-apis/
+
+========================
+📺 YouTube Tutorials
+========================
+- Dave Gray - Node.js Tutorial for Beginners:
+  https://www.youtube.com/playlist?list=PL0Zuz27SZ-6PFkIxaJ6Xx_X46avTM1aYw
+
+- Dave Gray - MongoDB for Beginners:
+  https://www.youtube.com/playlist?list=PL0Zuz27SZ-6Mx9fd9elt80G1bPcySmWit
+
+- Dave Gray - Express.js Full Course:
+  https://www.youtube.com/watch?v=G8uL0lFFoN0
+
+- Backend Simplified (CodeWithYash):
+  https://www.youtube.com/playlist?list=PLKhlp2qtUcSYqzM-ZUO6zG0GXx5Bw5rYy
+
+- Web Dev Simplified - JWT Auth Tutorial:
+  https://www.youtube.com/watch?v=2jqok-WgelI
+
+========================
+📚 Documentation & Books
+========================
+- Node.js Official Docs: https://nodejs.org/en/docs
+- Express.js Docs: https://expressjs.com/
+- MongoDB Manual: https://www.mongodb.com/docs/manual/tutorial/
+- .env (dotenv) package: https://www.npmjs.com/package/dotenv
+- Node.js Design Patterns Book:
+  https://www.oreilly.com/library/view/nodejs-design-patterns/9781839214110/
+
+========================
+🚀 Deployment & Tools
+========================
+- Render (Free Node.js Hosting): https://render.com/docs/deploy-node-express-app
+- Railway (Backend Hosting): https://railway.app/
+- Postman (API Testing): https://www.postman.com/
+- Thunder Client (VSCode REST Client): https://www.thunderclient.com/
+
+========================
+🎯 Practice Project Ideas
+========================
+- Task Manager API (CRUD, MongoDB, Auth)
+- Blog API with login/logout
+- Expense Tracker API
+- Chat App using Socket.io
+- File Upload Service with Multer
+
+========================
+📂 GitHub Repositories (Optional)
+========================
+- Awesome Node.js: https://github.com/sindresorhus/awesome-nodejs
+- Node Best Practices: https://github.com/goldbergyoni/nodebestpractices
+
+

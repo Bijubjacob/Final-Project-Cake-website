@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-mongoose.set('strictQuery', true);  // Or false, based on the preference
+mongoose.set('strictQuery', true);
 
 const db = process.env.mongoURI;
 

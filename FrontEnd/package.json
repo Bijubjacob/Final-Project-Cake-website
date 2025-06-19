@@ -39,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This is the FrontEnd code for the Piece of Cake Bakery website. It was programmed utilizing React # Authors Daniel Rusev, Daniel Grobla, Biju Jacob",
+  "main": "eslint.config.js",
+  "author": "",
+  "license": "ISC"
 }

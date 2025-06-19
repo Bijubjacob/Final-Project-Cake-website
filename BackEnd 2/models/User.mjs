@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/\S+@\S+\.\S+/, 'Please enter a valid email address'], //Please enter a valid email address
+    match: [/\S+@\S+\.\S+/, 'Please enter a valid email address'],
   },
   password: {
     type: String,
@@ -17,8 +17,8 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['user', 'admin'], // Enum for role validation
-    default: 'user',         // This is a default value for new users
+    enum: ['user', 'admin'],
+    default: 'user',         
   },
   isVerified: {
     type: Boolean,
@@ -26,8 +26,6 @@ const UserSchema = new mongoose.Schema({
   },
 }, { timestamps: true });
 
-
-// Create the model based on the schema
 const User = mongoose.model('user', UserSchema, 'users');
 
 export default User;

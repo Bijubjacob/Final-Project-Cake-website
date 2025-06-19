@@ -2,7 +2,7 @@ import express from 'express';
 import connectDB from './config/db.mjs';
 import dotenv from 'dotenv';
 import authRoutes from './routes/api/auth.mjs';
-import ordersRoutes from './routes/api/ordersRoute.mjs';
+import ordersRoutes from './routes/api/ordersRoute.mjs'; // Import the orders route
 import cors from 'cors';
 import listEndpoints from 'express-list-endpoints';
 import stripe from './routes/api/Stripe.mjs';
@@ -19,7 +19,7 @@ connectDB();
 
 const allowedOrigins = [
   'http://localhost:5173', // Local dev
-  'https://final-project-cake-website.vercel.app', //live Vercel frontend
+  'https://final-project-cake-website.vercel.app', // ✅ your live Vercel frontend
 ];
 
 app.use(cors({
