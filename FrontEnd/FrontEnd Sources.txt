@@ -1,4 +1,4 @@
-Resources and examples for the FrontEnd to help us. Sources are organized by each file. Most sources in each file category can also be used for other code::
+Resources and examples for the FrontEnd to help us. Sources are organized by each file. Most sources in each file category can also be used for other code:
 
 
 ========================
