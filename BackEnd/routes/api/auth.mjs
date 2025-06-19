@@ -5,7 +5,7 @@ import User from '../../models/User.mjs';
 
 const router = express.Router();
 
-// Register route
+// Route for user registration
 router.post(
   '/register',
   [
@@ -44,7 +44,7 @@ router.post(
   }
 );
 
-// Login route
+// Route for login
 router.post(
   '/login',
   [
@@ -80,7 +80,7 @@ router.post(
   }
 );
 
-// Logout route
+// Route for logout
 router.post('/logout', (req, res) => {
   res.json({ msg: 'Logged out successfully' });
 });
