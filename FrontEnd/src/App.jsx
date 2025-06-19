@@ -16,7 +16,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path="/" element={<MainPage/>}/>
-        <Route path="/confirmation" element={<ConfirmationPage/>}/>
+        <Route path="/ConfirmationPage" element={<ConfirmationPage/>}/>
         <Route path="/images" element={<ImageTransitions/>}/>
         <Route path="/Auth" element={<AuthPage/>}/>
         <Route path="/paymentPage" element={ <PrivateRoute><PaymentPage/></PrivateRoute>}/>
