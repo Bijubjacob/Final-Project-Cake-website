@@ -7,14 +7,12 @@ import cors from 'cors';
 import listEndpoints from 'express-list-endpoints';
 import stripe from './routes/api/Stripe.mjs';
 
-
 dotenv.config();
-
 
 //Initialize our app variable with Express
 const app = express();
 
-//Connect Database
+//Connect to the Mongo Database
 connectDB();
 
 const allowedOrigins = [
@@ -40,17 +38,15 @@ app.use(express.json({ extended: false }));
 //Single endpoint just to test API. Send data to browser
 //app.get('/', (req, res) => res.send('API Running'))
 
-//Define Routes
-// In your main backend file (e.g., index.js or server.js)
+//Routes
 app.use('/api/auth', authRoutes);
-
-app.use('/api/ordersRoute', ordersRoutes); // Use the orders route
+app.use('/api/ordersRoute', ordersRoutes); 
 app.use('/api/stripe', stripe);
 
 
 console.log(listEndpoints(app));  // This will print all routes to the console
 
-// This route will respond to requests made to the root URL "/"
+// This route will respond to requests made to the root URL
 app.get('/', (req, res) => {
   res.send('Welcome to the backend!');
 });
