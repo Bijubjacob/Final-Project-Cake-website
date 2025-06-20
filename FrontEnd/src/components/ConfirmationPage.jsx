@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 function ConfirmationPage() {
   const navigate = useNavigate();
-
   const order = JSON.parse(localStorage.getItem('latestOrder'));
 
   useEffect(() => {
