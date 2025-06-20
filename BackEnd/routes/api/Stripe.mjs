@@ -10,9 +10,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 router.post('/create-payment-intent', async (req, res) => {
   try {
     const { amount } = req.body;
-
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount, // Amount will be in cents
+      amount: amount, // Amount will be displayed in cents
       currency: 'usd',
     });
 
