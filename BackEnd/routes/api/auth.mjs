@@ -22,7 +22,6 @@ router.post(
     try {
       let user = await User.findOne({ email });
       if (user) return res.status(400).json({ errors: [{ msg: 'This account already Exists' }] });
-
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -31,11 +30,10 @@ router.post(
         email,
         password: hashedPassword,
         role: 'user',
-        isVerified: true, // skip email verification
+        isVerified: true, // Skip the email verification
       });
 
       await user.save();
-
       res.status(201).json({ msg: 'User registered successfully' });
     } catch (err) {
       console.error(err);
@@ -54,13 +52,11 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
-
     const { email, password } = req.body;
 
     try {
       const user = await User.findOne({ email });
       if (!user) return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
-
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] });
 
