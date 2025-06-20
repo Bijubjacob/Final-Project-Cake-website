@@ -7,7 +7,6 @@ import styles from './AuthPage.module.css';
 const AuthPage = () => {
   const navigate = useNavigate();
   const { login } = useContext(AuthContext);
-
   const [isRegistering, setIsRegistering] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -16,14 +15,12 @@ const AuthPage = () => {
     password2: '',
   });
   const [error, setError] = useState('');
-
   const toggleMode = () => {
     setIsRegistering(!isRegistering);
     setError('');
   };
 
   const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-
   const onSubmit = async (e) => {
     e.preventDefault();
     setError('');
