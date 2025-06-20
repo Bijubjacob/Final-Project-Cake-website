@@ -6,9 +6,7 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   try {
     const { userId, items, total, shippingAddress } = req.body;
-
     if (!userId) return res.status(400).json({ errors: [{ msg: 'User ID required' }] });
-
     const order = new Order({
       user: userId,
       items,
